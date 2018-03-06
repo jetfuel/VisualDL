@@ -31,6 +31,11 @@ addons:
       - nodejs
   ssh_known_hosts: 52.76.173.135
 
+env:
+  - JOB=check_style
+  - JOB=test
+  - JOB=build_doc
+
 before_install:
   - if [[ "$JOB" == "check_style" ]]; then sudo ln -s /usr/bin/clang-format-3.8 /usr/bin/clang-format; sudo pip install pre-commit flake8; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
