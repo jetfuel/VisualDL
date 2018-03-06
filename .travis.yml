@@ -7,11 +7,7 @@ cache:
 sudo: required
 dist: trusty
 
-os:
-  - linux
-    # much bug with osx environment
-    # TODO(ChunweiYan) support osx in the future
-    #- osx
+os: linux
 
 addons:
   apt:
