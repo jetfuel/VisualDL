@@ -9,10 +9,5 @@ dist: trusty
 
 os: linux
 
-addons:
-  apt:
-    packages:
-      - clang-format-3.8
-
 script:
   - ./scripts/tests.sh all
