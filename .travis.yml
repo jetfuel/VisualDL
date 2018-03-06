@@ -1,4 +1,7 @@
 language: cpp
+
+compiler: clang
+
 cache:
   - pip
   - ccache
@@ -7,16 +10,7 @@ cache:
 sudo: required
 dist: trusty
 
-os:
-  - linux
-    # much bug with osx environment
-    # TODO(ChunweiYan) support osx in the future
-    #- osx
-
-env:
-  - JOB=check_style
-  - JOB=test
-  - JOB=build_doc
+os: linux
 
 addons:
   apt:
@@ -36,6 +30,11 @@ addons:
       - npm
       - nodejs
   ssh_known_hosts: 52.76.173.135
+
+env:
+  - JOB=check_style
+  - JOB=test
+  - JOB=build_doc
 
 before_install:
   - if [[ "$JOB" == "check_style" ]]; then sudo ln -s /usr/bin/clang-format-3.8 /usr/bin/clang-format; sudo pip install pre-commit flake8; fi
