@@ -1,23 +1,26 @@
 language: cpp
-
-compiler: clang
-
 cache:
   - pip
   - ccache
   - yarn
   - npm
-
 sudo: required
-
 dist: trusty
 
-os: linux
+os:
+  - linux
+    # much bug with osx environment
+    # TODO(ChunweiYan) support osx in the future
+    #- osx
+
+env:
+  - JOB=check_style
+  - JOB=test
+  - JOB=build_doc
 
 addons:
   apt:
     packages:
-      - clang-3.7
       - gcc-4.8
       - g++-4.8
       - git
@@ -32,6 +35,13 @@ addons:
       - ccache
       - npm
       - nodejs
+  ssh_known_hosts: 52.76.173.135
+
+before_install:
+  - if [[ "$JOB" == "check_style" ]]; then sudo ln -s /usr/bin/clang-format-3.8 /usr/bin/clang-format; sudo pip install pre-commit flake8; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew upgrade python; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install brew-pip; fi
 
 script:
   - ./scripts/tests.sh all
