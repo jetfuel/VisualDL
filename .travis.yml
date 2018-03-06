@@ -13,11 +13,6 @@ os:
     # TODO(ChunweiYan) support osx in the future
     #- osx
 
-env:
-  - JOB=check_style
-  - JOB=test
-  - JOB=build_doc
-
 addons:
   apt:
     packages:
