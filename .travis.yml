@@ -20,6 +20,12 @@ addons:
       - npm
       - nodejs
 
+compiler: clang
+
+env:
+  - CC=clang-5.0
+  - CXX=clang++-5.0
+
 script:
   - touch foo
 
