@@ -2,7 +2,12 @@ language: python
 
 python:
   - "2.7"
-#  - "3.6"
+
+cache:
+  - pip
+  - ccache
+  - yarn
+  - npm
 
 sudo: false
 
@@ -23,8 +28,7 @@ addons:
 compiler: clang
 
 env:
-  - CC=clang-5.0
-  - CXX=clang++-5.0
+  - CC=clang-5.0 CXX=clang++-5.0
 
 script:
   - touch foo
