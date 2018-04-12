@@ -68,7 +68,6 @@ backend_test() {
         cmake ..
     fi
     make
-    make test
 }
 
 frontend_test() {
@@ -118,21 +117,4 @@ clean_env() {
 
 echo "mode" $mode
 
-if [ $mode = "backend" ]; then
-    backend_test
-elif [ $mode = "all" ]; then
-    # Clean before test
-    clean_env
-    # bigfile_reject should be tested first, or some files downloaded may fail this test.
-    bigfile_reject
-    package
-    frontend_test
-    backend_test
-    server_test
-elif [ $mode = "local" ]; then
-    #frontend_test
-    backend_test
-    server_test
-else
-    frontend_test
-fi
+backend_test
