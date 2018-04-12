@@ -10,11 +10,7 @@ cache:
 sudo: required
 dist: trusty
 
-os:
-  - linux
-    # much bug with osx environment
-    # TODO(ChunweiYan) support osx in the future
-    #- osx
+os: osx
 
 env:
   - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0 && JOB=check_style"
