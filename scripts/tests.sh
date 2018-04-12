@@ -24,7 +24,6 @@ ls -ls /opt
 ls -ls /usr
 ls /System/Library/Frameworks/Python.framework/Versions/
 
-easy_install pip
 
 python3 -m pip install -r requirements.txt
 
@@ -36,33 +35,9 @@ fi
 
 if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo=""; fi
 
-if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-		curl -O http://python-distribute.org/distribute_setup.py
-		$python distribute_setup.py
-                curl -O https://bootstrap.pypa.io/get-pip.py
-		$sudo $python get-pip.py
-fi
-
 export PYTHONPATH="${core_path}:${python_path}"
 
 # install the visualdl wheel first
-package() {
-    # some bug with frontend build
-    # a environment variable to skip frontend build
-    export VS_BUILD_MODE="travis-CI"
-
-    cd $TOP_DIR/visualdl/server
-    # manully install protobuf3
-    curl -OL https://github.com/google/protobuf/releases/download/v3.5.0/protoc-3.5.0-linux-x86_64.zip
-    unzip protoc-3.5.0-linux-x86_64.zip -d protoc3
-    export PATH="$PATH:$(pwd)/protoc3/bin"
-    chmod +x protoc3/bin/*
-
-
-    cd $TOP_DIR
-    $python setup.py bdist_wheel
-    $sudo $pip install dist/visualdl-${version_number}*.whl
-}
 
 backend_test() {
     cd $TOP_DIR
