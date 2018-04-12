@@ -14,7 +14,7 @@ readonly max_file_size=1000000 # 1MB
 readonly version_number=`cat VERSION_NUMBER | sed 's/\([0-9]*.[0-9]*.[0-9]*\).*/\1/g'`
 
 sudo="sudo"
-pip="pip"
+pip="pip2"
 python="python"
 
 if [[ "$WITH_PYTHON3" == "ON" ]]; then
