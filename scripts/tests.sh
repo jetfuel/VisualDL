@@ -18,7 +18,7 @@ pip="pip2"
 python="python"
 
 which python
-which pip
+python -m pip install numpy
 
 if [[ "$WITH_PYTHON3" == "ON" ]]; then
     pip="pip3"
