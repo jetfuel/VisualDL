@@ -29,7 +29,7 @@ if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
 		curl -O http://python-distribute.org/distribute_setup.py
 		$python distribute_setup.py
                 curl -O https://bootstrap.pypa.io/get-pip.py
-		$python get-pip.py
+		$sudo $python get-pip.py
 fi
 
 $sudo $pip install numpy
