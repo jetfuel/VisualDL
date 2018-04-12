@@ -22,8 +22,11 @@ ls /usr/bin
 ls -ls /
 ls -ls /opt
 ls -ls /usr
+ls /System/Library/Frameworks/Python.framework/Versions/
 
-python3 -m pip install numpy
+easy_install pip
+
+python3 -m pip install -r requirements.txt
 
 if [[ "$WITH_PYTHON3" == "ON" ]]; then
     pip="pip3"
@@ -39,11 +42,6 @@ if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
                 curl -O https://bootstrap.pypa.io/get-pip.py
 		$sudo $python get-pip.py
 fi
-
-$sudo $pip install numpy
-$sudo $pip install Flask
-$sudo $pip install Pillow
-$sudo $pip install protobuf
 
 export PYTHONPATH="${core_path}:${python_path}"
 
