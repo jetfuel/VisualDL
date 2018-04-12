@@ -15,7 +15,7 @@ readonly version_number=`cat VERSION_NUMBER | sed 's/\([0-9]*.[0-9]*.[0-9]*\).*/
 
 sudo="sudo"
 pip="pip"
-python="python2"
+python="python"
 
 if [[ "$WITH_PYTHON3" == "ON" ]]; then
     pip="pip3"
