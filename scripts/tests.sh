@@ -17,6 +17,9 @@ sudo="sudo"
 pip="pip2"
 python="python"
 
+which python
+which pip
+
 if [[ "$WITH_PYTHON3" == "ON" ]]; then
     pip="pip3"
     python="python3"
