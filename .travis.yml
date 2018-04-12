@@ -11,6 +11,7 @@ sudo: required
 dist: trusty
 
 os: osx
+osx_image: xcode7.2
 
 env:
   - MATRIX_EVAL="CC=clang-5.0 && CXX=clang++-5.0 && JOB=test"
@@ -35,6 +36,7 @@ addons:
       - ccache
       - npm
       - nodejs
+      - pip
   ssh_known_hosts: 13.229.163.131
 
 before_install:
