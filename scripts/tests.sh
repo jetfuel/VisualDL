@@ -35,8 +35,8 @@ fi
 $sudo $pip install numpy
 $sudo $pip install Flask
 $sudo $pip install Pillow
-$sudo $pip install six
-$sudo $pip install protobuf
+$sudo $pip install six==1.11.0
+$sudo $pip install protobuf==3.5.1
 
 export PYTHONPATH="${core_path}:${python_path}"
 
